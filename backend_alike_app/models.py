@@ -15,10 +15,16 @@ class User(models.Model):
 
 class Post(models.Model):
     image = models.URLField()
-    project_name = models.CharField(max_length = 30)
     github_link = models.URLField()
+    project_name = models.CharField(max_length = 30)
+    likes = models.IntegerField()
     username = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
 
     def __str__(self):
-        return f'{self.username}'
+        return f'{self.project_name}'
+
+class Comments(models.Model):
+
+    def __str__(self):
+        return f'{self.project_name}'
 
