@@ -24,7 +24,11 @@ class Post(models.Model):
         return f'{self.project_name}'
 
 class Comments(models.Model):
+    username = models.CharField(max_length = 30)
+    comments = models.CharField(max_length = 255)
+    likes = models.IntegerField()
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
 
     def __str__(self):
-        return f'{self.project_name}'
+        return f'{self.username}'
 
