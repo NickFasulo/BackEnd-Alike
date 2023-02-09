@@ -23,9 +23,9 @@ class Post(models.Model):
     image = models.URLField()
     github_link = models.URLField()
     project_name = models.CharField(max_length = 30)
-    likes = models.IntegerField()
+    likes = models.IntegerField(default = 0)
     # Links to User model
-    username = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
+    username = models.ForeignKey(User, on_delete = models.CASCADE, related_name = 'posts')
 
     # Return project name
     def __str__(self):
@@ -36,9 +36,9 @@ class Comment(models.Model):
     # Datafields
     username = models.CharField(max_length = 30)
     comment = models.CharField(max_length = 255)
-    likes = models.IntegerField()
+    likes = models.IntegerField(default = 0)
     # Links to Post model
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    post = models.ForeignKey(Post, on_delete = models.CASCADE, related_name = 'comments')
 
     # Return username
     def __str__(self):
