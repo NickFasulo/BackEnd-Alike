@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-eu4c7i=x5k_%-w_@qh&ncswo=8i4e%0i3m8bw-qtzn4j-@4zo!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['localhost','1.27.0.0.1','backend-alike.herokuapp.com','web-production-fdd8.up.railway.app']
+ALLOWED_HOSTS = ['localhost','1.27.0.0.1','backend-alike.herokuapp.com']
 # ALLOWED_HOSTS = ['*']
 
 
