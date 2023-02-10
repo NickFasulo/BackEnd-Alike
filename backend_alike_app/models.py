@@ -24,6 +24,7 @@ class Post(models.Model):
     github_link = models.URLField()
     project_name = models.CharField(max_length = 30)
     likes = models.IntegerField(default = 0)
+    tags = models.CharField()
     # Links to User model
     username = models.ForeignKey(User, on_delete = models.CASCADE, related_name = 'posts')
 
