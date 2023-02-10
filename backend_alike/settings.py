@@ -10,7 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+from dotenv import load_dotenv
+import os
 from pathlib import Path
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,13 +79,16 @@ WSGI_APPLICATION = 'backend_alike.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+HOST = str(os.getenv('HOST'))
+PASSWORD = str(os.getenv('PASSWORD'))
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'alike',
         'USER': 'alike_admin',
-        'PASSWORD': '12345',
-        'HOST': 'localhost'
+        'PASSWORD': PASSWORD,
+        'HOST': HOST
     }
 }
 
