@@ -79,16 +79,14 @@ WSGI_APPLICATION = 'backend_alike.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-HOST = str(os.getenv('HOST'))
-PASSWORD = str(os.getenv('PASSWORD'))
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'alike',
-        'USER': 'alike_admin',
-        'PASSWORD': PASSWORD,
-        'HOST': HOST
+        'NAME': str(os.getenv('NAME')),
+        'USER': str(os.getenv('USER')),
+        'PASSWORD': str(os.getenv('PASSWORD')),
+        'HOST': str(os.getenv('HOST')),
+        'PORT': str(os.getenv('PORT'))
     }
 }
 
