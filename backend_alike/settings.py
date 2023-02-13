@@ -32,7 +32,7 @@ DEBUG = False
 # ALLOWED_HOSTS = ['localhost','1.27.0.0.1','backend-alike.herokuapp.com']
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', 'https://backend-alike.herokuapp.com/']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', 'https://backend-alike.herokuapp.com/', 'https://backend-alike-staging.herokuapp.com/']
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
@@ -101,7 +101,6 @@ DATABASES = {
         'PORT': str(os.getenv('PORT'))
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
