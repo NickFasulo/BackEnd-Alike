@@ -24,16 +24,37 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-eu4c7i=x5k_%-w_@qh&ncswo=8i4e%0i3m8bw-qtzn4j-@4zo!'
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost','1.27.0.0.1','backend-alike.herokuapp.com']
-# ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['localhost','1.27.0.0.1','backend-alike.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', 'https://backend-alike.herokuapp.com', 'https://backend-alike-staging.herokuapp.com']
 
-# Application definition
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://localhost:8000",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:8000",
+    'https://backend-alike-staging.herokuapp.com'
+    "https://backend-alike.herokuapp.com"
+]
+
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+    'authorization'
+]
+
+# Change to false when deploying
+CORS_ALLOW_ALL_ORIGINS = False
 
 INSTALLED_APPS = [
     'django.contrib.admin',
