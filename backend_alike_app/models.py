@@ -20,11 +20,11 @@ class User(models.Model):
 # Post model
 class Post(models.Model):
     # Datafields
-    image = models.URLField()
-    github_link = models.URLField()
+    image = models.URLField(max_length = 500)
+    github_link = models.URLField(max_length = 500)
     project_name = models.CharField(max_length = 30)
     heartQty = models.IntegerField(default = 0)
-    tags = models.CharField(max_length = 255)
+    tags = models.CharField(max_length = 255, required=False)
     # Links to User model
     username = models.ForeignKey(User, on_delete = models.CASCADE, related_name = 'posts')
 
