@@ -144,10 +144,10 @@ WSGI_APPLICATION = 'backend_alike.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': str(os.getenv('LOCAL_NAME')),
-        'USER': str(os.getenv('LOCAL_USER')),
-        'PASSWORD': str(os.getenv('LOCAL_PASSWORD')),
-        'HOST': str(os.getenv('LOCAL_HOST')),
+        'NAME': str(os.getenv('NAME')),
+        'USER': str(os.getenv('USER')),
+        'PASSWORD': str(os.getenv('PASSWORD')),
+        'HOST': str(os.getenv('HOST')),
         'PORT': str(os.getenv('PORT'))
     }
 }
