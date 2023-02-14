@@ -53,9 +53,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+<<<<<<< HEAD
     'backend_alike_app',
     'corsheaders',
     'rest_framework_simplejwt.token_blacklist'
+=======
+    'corsheaders',
+    'backend_alike_app'
+>>>>>>> 1b138a538c1831d943ff48cee38b28e1d636dcb9
 ]
 
 REST_FRAMEWORK = {
@@ -138,6 +143,34 @@ DATABASES = {
         'PORT': str(os.getenv('PORT'))
     }
 }
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://localhost:8000",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:8000",
+]
+
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT'
+]
+
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with'
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
