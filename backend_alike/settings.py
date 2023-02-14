@@ -31,7 +31,6 @@ DEBUG = True
 # ALLOWED_HOSTS = ['localhost','1.27.0.0.1','backend-alike.herokuapp.com']
 ALLOWED_HOSTS = ['*']
 
-
 CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', 'https://backend-alike.herokuapp.com']
 
 
