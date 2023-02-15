@@ -118,9 +118,3 @@ GitHub: https://github.com/HowzayCalderon
 LinkedIn:
 
 GitHub
-
-## **Jimy Allen**
-
-LinkedIn: http://linkedin.com/in/jimy-allen-3066a7240
-
-GitHub: https://github.com/jallen2787

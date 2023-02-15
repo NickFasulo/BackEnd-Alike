@@ -20,7 +20,7 @@ class UserProfile(models.Model):
     email = models.EmailField(
       max_length = 40,
       unique = True
-      )
+    )
 
     # Return username
     def __str__(self):

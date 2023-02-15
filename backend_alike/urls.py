@@ -5,11 +5,11 @@ from rest_framework import routers
 from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
 
 # Import Viewsets
-from backend_alike_app.views import UserViewSet, PostViewSet, CommentViewSet
+from backend_alike_app.views import UserProfileViewSet, PostViewSet, CommentViewSet
 
 # Register Routers
 router = routers.DefaultRouter()
-router.register(r'user', UserViewSet)
+router.register(r'user', UserProfileViewSet)
 router.register(r'post', PostViewSet)
 router.register(r'comment', CommentViewSet)
 
