@@ -8,6 +8,11 @@ class User(models.Model):
       max_length = 30,
       unique = True
       )
+
+    password = models.CharField(
+      max_length = 30,
+    )
+    
     email = models.EmailField(
       max_length = 40,
       unique = True
