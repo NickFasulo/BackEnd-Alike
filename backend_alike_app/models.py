@@ -11,8 +11,9 @@ class User(models.Model):
 
     password = models.CharField(
       max_length = 30,
+      blank=True
     )
-    
+
     email = models.EmailField(
       max_length = 40,
       unique = True
