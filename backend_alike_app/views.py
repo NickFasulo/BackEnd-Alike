@@ -3,13 +3,13 @@ from django.shortcuts import render
 from rest_framework import viewsets
 
 # Import Models and Serializers
-from .serializers import UserSerializer, PostSerializer, CommentSerializer
-from .models import User, Post, Comment
+from .serializers import UserSerializer, UserProfileSerializer, PostSerializer, CommentSerializer
+from .models import UserProfile, Post, Comment
 
 # User View Set
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+class UserProfileViewSet(viewsets.ModelViewSet):
+    queryset = UserProfile.objects.all()
+    serializer_class = UserProfileSerializer
 
 # Post View Set
 class PostViewSet(viewsets.ModelViewSet):
