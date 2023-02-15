@@ -24,7 +24,7 @@ class Post(models.Model):
     github_link = models.URLField(max_length = 500)
     project_name = models.CharField(max_length = 30)
     heartQty = models.IntegerField(default = 0)
-    tags = models.CharField(max_length = 255, required=False)
+    # tags = models.CharField(max_length = 255, null = True, default = '', blank = True)
     # Links to User model
     username = models.ForeignKey(User, on_delete = models.CASCADE, related_name = 'posts')
 
