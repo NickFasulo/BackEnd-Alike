@@ -1,18 +1,21 @@
 # import modules
 from django.db import models
+from django.contrib.auth.models import User
 
 # User model
-class User(models.Model):
+class UserProfile(models.Model):
     # Datafields
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
     username = models.CharField(
       max_length = 30,
       unique = True
-      )
-
-    password = models.CharField(
-      max_length = 30,
-      blank=True
     )
+
+    # password = models.CharField(
+    #   max_length = 30,
+    #   blank=True
+    # )
 
     email = models.EmailField(
       max_length = 40,
@@ -32,7 +35,7 @@ class Post(models.Model):
     heartQty = models.IntegerField(default = 0)
     # tags = models.CharField(max_length = 255, null = True, default = '', blank = True)
     # Links to User model
-    username = models.ForeignKey(User, on_delete = models.CASCADE, related_name = 'posts')
+    username = models.ForeignKey(UserProfile, on_delete = models.CASCADE, related_name = 'posts')
 
     # Return project name
     def __str__(self):
