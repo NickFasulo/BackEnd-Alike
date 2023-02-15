@@ -1,12 +1,22 @@
 # Import Modules
 from rest_framework import serializers
 # Import Models
-from .models import User, Post, Comment
+from .models import UserProfile, Post, Comment
 
-# User Serializer
-class UserSerializer(serializers.ModelSerializer):
+
+# UserProfile Serializer
+
+class UserSerializer(serializers.BaseSerializer):
+    def to_representation(self, instance):
+        return {
+            "id": instance.id,
+            "username": instance.username,
+            "password": instance.password,
+        }
+
+class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
+        model = UserProfile
         fields = '__all__'
 
 # Post Serializer
