@@ -32,8 +32,7 @@ DEBUG = True
 # ALLOWED_HOSTS = ['localhost','1.27.0.0.1','backend-alike.herokuapp.com']
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', 'https://backend-alike.herokuapp.com', 'https://alike-ga.netlify.app', 'https://alike-ga.netlify.app/profile', 'https://alike-ga.netlify.app/home']
-
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', 'https://backend-alike.herokuapp.com', 'https://alike-ga.netlify.app',]
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
@@ -41,9 +40,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://127.0.0.1:8000",
     "https://backend-alike.herokuapp.com", 
-    'https://alike-ga.netlify.app', 
-    'https://alike-ga.netlify.app/profile', 
-    'https://alike-ga.netlify.app/home'
+    'https://alike-ga.netlify.app',
 ]
 
 CORS_ALLOW_METHODS = [
