@@ -32,7 +32,7 @@ class Post(models.Model):
     image = models.URLField(max_length = 500)
     github_link = models.URLField(max_length = 500)
     project_name = models.CharField(max_length = 30)
-    heartQty = models.IntegerField(default = 0)
+    # heartQty = models.IntegerField(default = 0)
     # tags = models.CharField(max_length = 255, null = True, default = '', blank = True)
     # Links to User model
     username = models.ForeignKey(UserProfile, on_delete = models.CASCADE, related_name = 'posts')
@@ -46,7 +46,7 @@ class Comment(models.Model):
     # Datafields
     username = models.CharField(max_length = 30)
     comment = models.CharField(max_length = 255)
-    heartQty = models.IntegerField(default = 0)
+    # heartQty = models.IntegerField(default = 0)
     # Links to Post model
     post = models.ForeignKey(Post, on_delete = models.CASCADE, related_name = 'comments')
 
