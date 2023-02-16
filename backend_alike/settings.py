@@ -18,6 +18,7 @@ DEBUG = True
 # Allows all hosts / browsers
 ALLOWED_HOSTS = ['*']
 
+
 # CORS settings
 # CORS trusted origins
 CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', 'https://backend-alike.herokuapp.com', 'https://alike-ga.netlify.app',]
@@ -56,7 +57,7 @@ CORS_ALLOW_HEADERS = [
 ]
 
 # Change to false when deploying
-CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOW_ALL_ORIGINS = True
 
 
 # Apps installed in this project
@@ -116,10 +117,10 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
 
+    # all django boilerplate except for cors
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    # all django boilerplate except for this one below
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
