@@ -26,12 +26,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
+# please don't touch
 DEBUG = True
 
 # ALLOWED_HOSTS = ['localhost','1.27.0.0.1','backend-alike.herokuapp.com']
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', 'https://backend-alike.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', 'https://backend-alike.herokuapp.com', 'https://alike-ga.netlify.app', 'https://alike-ga.netlify.app/profile', 'https://alike-ga.netlify.app/home']
 
 
 CORS_ALLOWED_ORIGINS = [
@@ -39,7 +40,10 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:8000",
     "http://127.0.0.1:3000",
     "http://127.0.0.1:8000",
-    "https://backend-alike.herokuapp.com"
+    "https://backend-alike.herokuapp.com", 
+    'https://alike-ga.netlify.app', 
+    'https://alike-ga.netlify.app/profile', 
+    'https://alike-ga.netlify.app/home'
 ]
 
 CORS_ALLOW_METHODS = [
@@ -48,8 +52,19 @@ CORS_ALLOW_METHODS = [
     'OPTIONS',
     'PATCH',
     'POST',
-    'PUT',
-    'authorization'
+    'PUT'
+]
+
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with'
 ]
 
 # Change to false when deploying
@@ -151,34 +166,6 @@ DATABASES = {
         'PORT': str(os.getenv('PORT'))
     }
 }
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://localhost:8000",
-    "http://127.0.0.1:3000",
-    "http://127.0.0.1:8000",
-]
-
-CORS_ALLOW_METHODS = [
-    'DELETE',
-    'GET',
-    'OPTIONS',
-    'PATCH',
-    'POST',
-    'PUT'
-]
-
-CORS_ALLOW_HEADERS = [
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with'
-]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
