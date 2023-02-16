@@ -1,9 +1,9 @@
 # Import Modules
 from django.shortcuts import render
+# Import Django Rest Framework
 from rest_framework import viewsets
-
 # Import Models and Serializers
-from .serializers import UserSerializer, UserProfileSerializer, PostSerializer, CommentSerializer
+from .serializers import UserProfileSerializer, PostSerializer, CommentSerializer
 from .models import UserProfile, Post, Comment
 
 # User View Set

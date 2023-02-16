@@ -3,9 +3,9 @@ from rest_framework import serializers
 # Import Models
 from .models import UserProfile, Post, Comment
 
+# Serializers let us access data from the specific fields that we want within our models.
 
-# UserProfile Serializer
-
+# User Serializer
 class UserSerializer(serializers.BaseSerializer):
     def to_representation(self, instance):
         return {
@@ -14,6 +14,7 @@ class UserSerializer(serializers.BaseSerializer):
             "password": instance.password,
         }
 
+# UserProfile Serializer
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
