@@ -2,7 +2,7 @@
 
 ## Description
 
-Description TBC
+This is our Final Group project in our SEI bootcamp. The task was to create a clone of a social media platform and our group decided to recreate an instagram page but with our own twist on it. Our app is called Alike and it is targeted towards software engineers at any level. It is a site to display your projects in a social media environment. You can link your github repo so users can go to the project you posted and take a look at the code behind it and also browse through your README file. Alike is a great place for project exposure and also a place to meet people that you could collaborate with in the future. We hope every user can find it to be a valuable resource.
 
 - GitHub Link: https://github.com/NickFasulo/BackEnd-Alike
 - Heroku API Root Directory: https://backend-alike.herokuapp.com/
@@ -13,11 +13,12 @@ Screenshots and API endpoints:
 
 ### **_Root API Screenshot_**
 
-![API All Products  JSON](./images/RM_Screenshot2.png)
+![API All Products JSON](/screenshot_from_2023-02-16_22-45-55.png)
 
 ### **_All Products JSON_**
 
-![API All Products  JSON](./images/RM_Screenshot1.png)
+![API All User JSON](/screenshot_from_2023-02-16_22-44-52.png)
+![API All Post Json](/screenshot_from_2023-02-16_22-44-52.png)
 
 ## Endpoints
 
@@ -69,7 +70,6 @@ Comment:
 - SimpleJWT
 - Rest Framework
 - PostgresSQL
-- Something
 
 ## Future Features
 
@@ -78,7 +78,6 @@ Comment:
 - Functional profile pages
 - Likes on Posts
 - Tags for Posts
--
 
 # Team
 
@@ -88,29 +87,11 @@ LinkedIn: https://www.linkedin.com/in/anna-druzhinina/
 
 GitHub: https://github.com/annadruzhinina
 
-## **Ron Lanzilotta**
+## **Argurjana Olloni**
 
-LinkedIn: https://www.linkedin.com/in/ronlanzilotta/
+LinkedIn: https://www.linkedin.com/in/aolloni/
 
-GitHub: https://github.com/RonLanzilotta
-
-## **Nick Fasulo**
-
-LinkedIn: https://www.linkedin.com/in/nicholas-fasulo/
-
-GitHub: https://github.com/NickFasulo
-
-## **Vasilis Myrianthopoulos**
-
-LinkedIn: https://www.linkedin.com/in/vasilis-myrianthopoulos/
-
-GitHub: https://github.com/Vasilis89
-
-## **Ryan Ehrlich**
-
-LinkedIn: https://www.linkedin.com/in/ryanehrlich/
-
-GitHub: https://github.com/Jagerziel
+GitHub: https://github.com/argurjanaolloni
 
 ## **Jose Calderon**
 
@@ -118,8 +99,26 @@ LinkedIn: https://www.linkedin.com/in/jose-a-calderon-software-engineer/
 
 GitHub: https://github.com/HowzayCalderon
 
-## **Argurjana Olloni**
+## **Nick Fasulo**
 
-LinkedIn: https://www.linkedin.com/in/aolloni/
+LinkedIn: https://www.linkedin.com/in/nicholas-fasulo/
 
-GitHub: https://github.com/argurjanaolloni
+GitHub: https://github.com/NickFasulo
+
+## **Ron Lanzilotta**
+
+LinkedIn: https://www.linkedin.com/in/ronlanzilotta/
+
+GitHub: https://github.com/RonLanzilotta
+
+## **Ryan Ehrlich**
+
+LinkedIn: https://www.linkedin.com/in/ryanehrlich/
+
+GitHub: https://github.com/Jagerziel
+
+## **Vasilis Myrianthopoulos**
+
+LinkedIn: https://www.linkedin.com/in/vasilis-myrianthopoulos/
+
+GitHub: https://github.com/Vasilis89
