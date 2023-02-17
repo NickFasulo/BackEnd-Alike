@@ -63,6 +63,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 # Apps installed in this project
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -71,7 +72,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'backend_alike_app',
-    'corsheaders',
     'rest_framework_simplejwt.token_blacklist'
 ]
 
@@ -120,9 +120,9 @@ SIMPLE_JWT = {
 
     # all django boilerplate except for cors
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
