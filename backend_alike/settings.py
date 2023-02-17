@@ -21,7 +21,7 @@ ALLOWED_HOSTS = ['*']
 
 # CORS settings
 # CORS trusted origins
-CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', 'https://backend-alike.herokuapp.com', 'https://alike-ga.netlify.app',]
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', 'https://backend-alike.herokuapp.com', 'https://alike-ga.netlify.app', 'http://res.cloudinary.com']
 
 # CORS Allowed origins
 CORS_ALLOWED_ORIGINS = [
@@ -31,6 +31,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:8000",
     "https://backend-alike.herokuapp.com", 
     'https://alike-ga.netlify.app',
+    'http://res.cloudinary.com'
 ]
 
 # CORS allowed methods
@@ -62,6 +63,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 # Apps installed in this project
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -70,7 +72,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'backend_alike_app',
-    'corsheaders',
     'rest_framework_simplejwt.token_blacklist'
 ]
 
@@ -119,9 +120,9 @@ SIMPLE_JWT = {
 
     # all django boilerplate except for cors
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
