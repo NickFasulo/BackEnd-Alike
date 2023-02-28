@@ -69,7 +69,6 @@ Comment:
 - SimpleJWT
 - Rest Framework
 - PostgresSQL
-- Something
 
 ## Future Features
 
@@ -78,7 +77,6 @@ Comment:
 - Functional profile pages
 - Likes on Posts
 - Tags for Posts
--
 
 # Team
 
