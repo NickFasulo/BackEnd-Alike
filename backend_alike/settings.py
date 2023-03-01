@@ -3,6 +3,9 @@ from dotenv import load_dotenv
 import os
 from pathlib import Path
 
+# imports datetime
+from datetime import timedelta
+
 # initializes dotenv
 load_dotenv()
 
@@ -90,10 +93,6 @@ REST_FRAMEWORK = {
         'knox.auth.TokenAuthentication',
     ],
 }
-
-# imports datetime
-from datetime import timedelta
-
 
 # all django boilerplate except for cors
 MIDDLEWARE = [
