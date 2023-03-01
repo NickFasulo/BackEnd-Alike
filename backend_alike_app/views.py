@@ -162,7 +162,7 @@ class OnePost_ViewSet(APIView):
                 userProfile = UserProfile.objects.get(user=user)
                 Posts = Post.objects.get(id=id)
                 userId = userProfile.id
-                userPost = Posts.user_id # .id ???
+                userPost = Posts.id
                 if userId == userPost:
                     Posts.delete()
                     return Response({'message': "Post Successfully Deleted!!"})
