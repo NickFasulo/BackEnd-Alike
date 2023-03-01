@@ -7,7 +7,7 @@ from rest_framework import routers
 from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
 
 # Import ViewSets
-from backend_alike_app.views import UserProfileViewSet, PostViewSet, CommentViewSet
+from backend_alike_app.views import UserProfileViewSet, PostViewSet, CommentViewSet, SignupView, LoginView, GrabProfile
 
 # Register Routers
 router = routers.DefaultRouter()
@@ -21,8 +21,11 @@ urlpatterns = [
     path('', include(router.urls)),
     # admin panel
     path('admin/', admin.site.urls),
-    # obtain pair view token path
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    # obtain refresh token path
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh')
-]
+    path('signup', SignupView.as_view()),
+    path('login', LoginView.as_view()),
+    path('profile', GrabProfile.as_view())
+    ]
+    # # obtain pair view token path
+    # path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    # # obtain refresh token path
+    # path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh')
