@@ -11,13 +11,17 @@ Description TBC
 
 Screenshots and API endpoints:
 
-### **_Root API Screenshot_**
+### ***ROOT API***
 
-![API All Products  JSON](./images/RM_Screenshot2.png)
+![API ROOT](./assets/ROOT.png)
 
-### **_All Products JSON_**
+### ***USERS***
 
-![API All Products  JSON](./images/RM_Screenshot1.png)
+![USERS](./assets/USERS.png)
+
+### ***POSTS***
+
+![POSTS](./assets/POSTS.png)
 
 ## Endpoints
 
@@ -48,15 +52,19 @@ Post:
 - image
 - github_link
 - project_name
-- heartQty
 - username(ForeignKey links to user model)
 
 Comment:
 
 - username
 - comment
-- heartQty
 - post(ForeignKey links to post model)
+
+### Cloudinary
+
+Cloudinary was used to allow users to upload photos of their projects from various sources. Here's an overview of the data flow.
+
+![DATA FLOW](./assets/DATA_FLOW.jpg)
 
 ### Dependencies
 
@@ -66,7 +74,7 @@ Comment:
 - Python
 - Cloudinary
 - Heroku CLI
-- SimpleJWT
+- Knox
 - Rest Framework
 - PostgresSQL
 
@@ -121,3 +129,8 @@ GitHub: https://github.com/HowzayCalderon
 LinkedIn: https://www.linkedin.com/in/aolloni/
 
 GitHub: https://github.com/argurjanaolloni
+
+## ***TEAM***
+
+![TEAM](./assets/TEAM.jpg)
+
