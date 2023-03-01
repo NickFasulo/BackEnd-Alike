@@ -3,6 +3,9 @@ from dotenv import load_dotenv
 import os
 from pathlib import Path
 
+# imports datetime
+from datetime import timedelta
+
 # initializes dotenv
 load_dotenv()
 
@@ -57,9 +60,16 @@ CORS_ALLOW_HEADERS = [
     'x-requested-with'
 ]
 
-# Change to false when deploying
 CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
 
+# Knox token settings
+REST_KNOX = {
+    'TOKEN_TTL': timedelta(hours=340),
+    'AUTO_REFRESH': True,
+}
+
+KNOX_TOKEN_MODEL = 'knox.AuthToken'
 
 # Apps installed in this project
 INSTALLED_APPS = [
@@ -72,53 +82,19 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'backend_alike_app',
-    'rest_framework_simplejwt.token_blacklist'
+    'knox',
 ]
 
-# Python is expecting a tuple here, don't forget that comma on line 79
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'knox.auth.TokenAuthentication',
+    ],
 }
 
-# imports datetime
-from datetime import timedelta
-
-# User Auth signing key, built out but not implemented
-SIMPLE_JWT_SIGNING_KEY = "b=72^ado*%1(v3r7rga9ch)03xr=d*f)lroz94kosf!61((9=i"
-
-
-SIMPLE_JWT = {
-    # Lifetime of Auth tokens. We set these to be very long because our Refresh tokens were not working.
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=10),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
-
-    'ROTATE_REFRESH_TOKENS': False,
-    'BLACKLIST_AFTER_ROTATION': True,
-
-    'ALGORITHM': 'HS256',
-    'SIGNING_KEY': SIMPLE_JWT_SIGNING_KEY,
-    'VERIFYING_KEY': None,
-    'AUDIENCE': None,
-    'ISSUER': None,
-
-    'AUTH_HEADER_TYPES': ('Bearer',),
-    'USER_ID_FIELD': 'id',
-    'USER_ID_CLAIM': 'user_id',
-
-    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
-    'TOKEN_TYPE_CLAIM': 'token_type',
-
-    'JTI_CLAIM': 'jti',
-    
-    'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
-    'SLIDING_TOKEN_LIFETIME': timedelta(days=5),
-
-    'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
-}
-
-    # all django boilerplate except for cors
+# all django boilerplate except for cors
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -192,6 +168,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = 'static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
