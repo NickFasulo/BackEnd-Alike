@@ -72,7 +72,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'backend_alike_app',
-    'rest_framework_simplejwt.token_blacklist'
+    'knox',
 ]
 
 # Python is expecting a tuple here, don't forget that comma on line 79
