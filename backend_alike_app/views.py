@@ -159,11 +159,11 @@ class OnePost_ViewSet(APIView):
             user = self.request.user
             isAuthenticated = user.is_authenticated
             if isAuthenticated:
-                userAccount = User_Account.objects.get(user=user)
+                userProfile = UserProfile.objects.get(user=user)
                 Posts = Post.objects.get(id=id)
-                Profile = userAccount.id
-                userPost = Posts.user_id
-                if Profile == userPost:
+                userId = userProfile.id
+                userPost = Posts.user_id # .id ???
+                if userId == userPost:
                     Posts.delete()
                     return Response({'message': "Post Successfully Deleted!!"})
                 else:
@@ -172,7 +172,6 @@ class OnePost_ViewSet(APIView):
                 return Response({'error': "Not Authenticated make sure you include a token"})
         except:
             return Response({'error': "Error: Invalid Body"})
-
 
 
 # Comment View Set
