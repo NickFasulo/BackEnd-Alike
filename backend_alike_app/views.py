@@ -132,35 +132,21 @@ class OnePost_ViewSet(APIView):
         except Exception as e:  
             print("Error getting One Post:", e)
             return Response({"error": "Something went wrong"})
-        
-
-
-
-
-
-
-
-
-
-
-        
+                
     def put(self, request, id):
         try:
             user = self.request.user
             isAuthenticated = user.is_authenticated
             if isAuthenticated:
-                body = request.data['body']
-                location = request.data['location']
-                date = request.data['date']
-                title = request.data['title']
                 image = request.data['image']
-                likes = request.data['likes']
-                Account = User_Account.objects.get(user=user)
+                github_link = request.data['github_link']
+                project_name = request.data['project_name']
+                userProfile = UserProfile.objects.get(user=user)
                 Posts = Post.objects.get(id=id)
-                userAccount = Account.id
+                userId = userProfile.id
                 userPost = Posts.id
-                if userPost == userAccount:
-                    Post.objects.update(body=body, location=location, title=title, date=date, image=image, likes=likes)
+                if userPost == userId:
+                    Post.objects.update(image=image, github_link=github_link, project_name=project_name)
                     return Response({'message': 'Post successfully updated'})
                 else:
                     return Response({'message': "You are not authorized to perform this action"})
