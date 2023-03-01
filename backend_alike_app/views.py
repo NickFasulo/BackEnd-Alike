@@ -101,14 +101,14 @@ class AllPost_ViewSet(APIView):
                 image = request.data['image']
                 github_link = request.data['github_link']
                 project_name = request.data['project_name']
-                userProfile = UserProfile.objects.get(user=user)
-                Post.objects.create(user=userProfile, image=image, github_link=github_link, project_name=project_name)
+                username = UserProfile.objects.get(user=user)
+                Post.objects.create(username=username, image=image, github_link=github_link, project_name=project_name)
                 return Response({'message': "Post Successfully Created"})
             else:
                 return Response({'error': "Not authenticated; Include an authentication token"})
         except Exception as e:
             print("Error", e)
-            return Response({'error': "Error: Invaild body"})
+            return Response({'error': "Error: Invalid body"})
     def get(self, request): 
         try:
             results = Post.objects.all()

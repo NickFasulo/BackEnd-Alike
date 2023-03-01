@@ -5,7 +5,7 @@ from django.urls import path, include
 from rest_framework import routers
 
 # Import ViewSets
-from backend_alike_app.views import UserProfileViewSet, PostViewSet, CommentViewSet, SignupView, LoginView, GrabProfile
+from backend_alike_app.views import UserProfileViewSet, PostViewSet, CommentViewSet, SignupView, LoginView, GrabProfile, AllPost_ViewSet
 
 # Register Routers
 router = routers.DefaultRouter()
@@ -24,5 +24,6 @@ urlpatterns = [
     # login
     path('login', LoginView.as_view()),
     # grab profile
-    path('profile', GrabProfile.as_view())
+    path('profile', GrabProfile.as_view()),
+    path('posts', AllPost_ViewSet.as_view())
     ]
