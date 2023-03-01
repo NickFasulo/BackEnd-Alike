@@ -11,11 +11,11 @@ This is our Final Group project in our SEI bootcamp. The task was to create a cl
 
 Screenshots and API endpoints:
 
-### **_Root API Screenshot_**
+### **_ROOT API_**
 
 ![API All Products JSON](/screenshot_from_2023-02-16_22-45-55.png)
 
-### **_All Products JSON_**
+### **_USERS_**
 
 ![API All User JSON](/screenshot_from_2023-02-16_22-44-52.png)
 ![API All Post Json](/screenshot_from_2023-02-16_22-44-52.png)
@@ -49,15 +49,19 @@ Post:
 - image
 - github_link
 - project_name
-- heartQty
 - username(ForeignKey links to user model)
 
 Comment:
 
 - username
 - comment
-- heartQty
 - post(ForeignKey links to post model)
+
+### Cloudinary
+
+Cloudinary was used to allow users to upload photos of their projects from various sources. Here's an overview of the data flow.
+
+![DATA FLOW](./assets/DATA_FLOW.jpg)
 
 ### Dependencies
 
@@ -67,7 +71,7 @@ Comment:
 - Python
 - Cloudinary
 - Heroku CLI
-- SimpleJWT
+- Knox
 - Rest Framework
 - PostgresSQL
 
