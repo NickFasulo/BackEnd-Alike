@@ -69,11 +69,14 @@ Comment:
 - SimpleJWT
 - Rest Framework
 - PostgresSQL
--
 
 ## Future Features
 
-- TBD
+- Full User Authorization
+- Comments under Posts
+- Functional profile pages
+- Likes on Posts
+- Tags for Posts
 
 # Team
 
@@ -115,12 +118,6 @@ GitHub: https://github.com/HowzayCalderon
 
 ## **Argurjana Olloni**
 
-LinkedIn:
+LinkedIn: https://www.linkedin.com/in/aolloni/
 
-GitHub
-
-## **Jimy Allen**
-
-LinkedIn: http://linkedin.com/in/jimy-allen-3066a7240
-
-GitHub: https://github.com/jallen2787
+GitHub: https://github.com/argurjanaolloni
