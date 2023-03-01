@@ -5,7 +5,7 @@ from django.urls import path, include
 from rest_framework import routers
 
 # Import ViewSets
-from backend_alike_app.views import UserProfileViewSet, PostViewSet, CommentViewSet, SignupView, LoginView, GrabProfile, AllPost_ViewSet
+from backend_alike_app.views import UserProfileViewSet, PostViewSet, CommentViewSet, SignupView, LoginView, GrabProfile, AllPost_ViewSet, OnePost_ViewSet
 
 # Register Routers
 router = routers.DefaultRouter()
@@ -25,5 +25,8 @@ urlpatterns = [
     path('login', LoginView.as_view()),
     # grab profile
     path('profile', GrabProfile.as_view()),
-    path('posts', AllPost_ViewSet.as_view())
+    # get all posts
+    path('posts', AllPost_ViewSet.as_view()),
+    # edit / delete one post
+    path('post/<int:id>', OnePost_ViewSet.as_view())
     ]
