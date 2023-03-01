@@ -12,6 +12,8 @@ from knox.models import AuthToken
 from .serializers import UserSerializer, UserProfileSerializer, PostSerializer, CommentSerializer
 from .models import UserProfile, Post, Comment
 
+
+# Signup View Set
 class SignupView(APIView):
     permission_classes = [
         permissions.AllowAny
@@ -43,6 +45,27 @@ class SignupView(APIView):
                 return Response({"error": "Passwords do not match"})
         except:
             return Response({"error": "Something went wrong signing up"})
+        
+# Login View Set
+class LoginView(APIView):
+    permission_classes = [
+        permissions.AllowAny
+    ]
+
+    def post(self,request):
+        data = self.request.data
+        username = data["username"]
+        password = data["password"]
+        try:
+            user = auth.authenticate(username=username, password=password)
+            if user is not None:
+                auth.login(request, user)
+                return Response({"success": "User authenticated",
+                                    "token": AuthToken.objects.create(user)[1]})
+            else:
+                return Response({"error": "Error Authenticating"})
+        except:
+            return Response({"error": "Something went wrong when logging in"})
 
 
 # User View Set
