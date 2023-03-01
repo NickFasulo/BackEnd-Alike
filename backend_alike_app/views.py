@@ -67,6 +67,17 @@ class LoginView(APIView):
         except:
             return Response({"error": "Something went wrong when logging in"})
 
+# Grab Profile View Set
+class GrabProfile(APIView):
+    def get(self, request):
+        try:
+            user = self.request.user
+            profile = UserProfile.objects.get(user=user)
+            profile_json = UserProfileSerializer(profile)
+            return Response({"profile": profile_json.data})
+        except:
+            return Response({"error": "User profile not found"})
+
 
 # User View Set
 class UserProfileViewSet(viewsets.ModelViewSet):
