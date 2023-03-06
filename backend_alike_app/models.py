@@ -19,7 +19,7 @@ class UserProfile(models.Model):
 
     # Return username
     def __str__(self):
-        return f'{self.username}'
+        return f'{self.id}'
 
 # Post model
 class Post(models.Model):

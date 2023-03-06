@@ -163,12 +163,12 @@ class OnePost_ViewSet(APIView):
                 userProfile = UserProfile.objects.get(user=user)
                 Posts = Post.objects.get(id=id)
                 userId = userProfile.id
-                userPost = Posts.id
-                if userId == userPost:
+                userPost = Posts.username
+                if str(userId) == str(userPost):
                     Posts.delete()
                     return Response({'message': "Post Successfully Deleted!!"})
                 else:
-                    res = f'{userId}, {userPost}, You are not authorized to delete this post'
+                    res = f'userId: {userId}, userPost: {userPost}, userProfile: {userProfile}, Posts: {Posts} You are not authorized to delete this post'
                     return Response({'message': res})
             else:
                 return Response({'error': "Not Authenticated make sure you include a token"})
