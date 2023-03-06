@@ -145,8 +145,8 @@ class OnePost_ViewSet(APIView):
                 userProfile = UserProfile.objects.get(user=user)
                 Posts = Post.objects.get(id=id)
                 userId = userProfile.id
-                userPost = Posts.id
-                if userPost == userId:
+                userPost = Posts.username
+                if str(userPost) == str(userId):
                     Post.objects.update(image=image, github_link=github_link, project_name=project_name)
                     return Response({'message': 'Post successfully updated'})
                 else:
