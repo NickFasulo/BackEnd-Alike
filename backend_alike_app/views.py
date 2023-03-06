@@ -105,7 +105,7 @@ class AllPost_ViewSet(APIView):
                 Post.objects.create(username=username, image=image, github_link=github_link, project_name=project_name)
                 return Response({'message': "Post Successfully Created"})
             else:
-                return Response({'error': "Not authenticated; Include an authentication token"})
+                return Response({'error': "Not authenticated to create post; include an authentication token"})
         except Exception as e:
             print("Error", e)
             return Response({'error': "Error: Invalid body"})
@@ -141,15 +141,16 @@ class OnePost_ViewSet(APIView):
                 image = request.data['image']
                 github_link = request.data['github_link']
                 project_name = request.data['project_name']
+                # heartQty = request.data['heartQty']
                 userProfile = UserProfile.objects.get(user=user)
                 Posts = Post.objects.get(id=id)
                 userId = userProfile.id
-                userPost = Posts.id
-                if userPost == userId:
+                userPost = Posts.username
+                if str(userPost) == str(userId):
                     Post.objects.update(image=image, github_link=github_link, project_name=project_name)
                     return Response({'message': 'Post successfully updated'})
                 else:
-                    return Response({'message': "You are not authorized to perform this action"})
+                    return Response({'message': "You are not authorized to update this post"})
             else:
                 return Response({'error': "Not Authenticated make sure you include a token"})
         except:
@@ -162,12 +163,13 @@ class OnePost_ViewSet(APIView):
                 userProfile = UserProfile.objects.get(user=user)
                 Posts = Post.objects.get(id=id)
                 userId = userProfile.id
-                userPost = Posts.id
-                if userId == userPost:
+                userPost = Posts.username
+                if str(userId) == str(userPost):
                     Posts.delete()
                     return Response({'message': "Post Successfully Deleted!!"})
                 else:
-                    return Response({'message': "You are not authorized to perform this action"})
+                    res = f'userId: {userId}, userPost: {userPost}, userProfile: {userProfile}, Posts: {Posts} You are not authorized to delete this post'
+                    return Response({'message': res})
             else:
                 return Response({'error': "Not Authenticated make sure you include a token"})
         except:
