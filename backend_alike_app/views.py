@@ -105,7 +105,7 @@ class AllPost_ViewSet(APIView):
                 Post.objects.create(username=username, image=image, github_link=github_link, project_name=project_name)
                 return Response({'message': "Post Successfully Created"})
             else:
-                return Response({'error': "Not authenticated; Include an authentication token"})
+                return Response({'error': "Not authenticated to create post; include an authentication token"})
         except Exception as e:
             print("Error", e)
             return Response({'error': "Error: Invalid body"})
@@ -141,6 +141,7 @@ class OnePost_ViewSet(APIView):
                 image = request.data['image']
                 github_link = request.data['github_link']
                 project_name = request.data['project_name']
+                # heartQty = request.data['heartQty']
                 userProfile = UserProfile.objects.get(user=user)
                 Posts = Post.objects.get(id=id)
                 userId = userProfile.id
@@ -149,7 +150,7 @@ class OnePost_ViewSet(APIView):
                     Post.objects.update(image=image, github_link=github_link, project_name=project_name)
                     return Response({'message': 'Post successfully updated'})
                 else:
-                    return Response({'message': "You are not authorized to perform this action"})
+                    return Response({'message': "You are not authorized to update this post"})
             else:
                 return Response({'error': "Not Authenticated make sure you include a token"})
         except:
@@ -167,7 +168,8 @@ class OnePost_ViewSet(APIView):
                     Posts.delete()
                     return Response({'message': "Post Successfully Deleted!!"})
                 else:
-                    return Response({'message': "You are not authorized to perform this action"})
+                    res = f'{userId}, {userPost}, You are not authorized to delete this post'
+                    return Response({'message': res})
             else:
                 return Response({'error': "Not Authenticated make sure you include a token"})
         except:
