@@ -19,7 +19,7 @@ class UserProfile(models.Model):
 
     # Return username
     def __str__(self):
-        return f'{self.username}'
+        return self.username
 
 # Post model
 class Post(models.Model):
@@ -31,6 +31,7 @@ class Post(models.Model):
     # tags = models.CharField(max_length = 255, null = True, default = '', blank = True)
     # Links to User model
     username = models.ForeignKey(UserProfile, on_delete = models.CASCADE, related_name = 'posts')
+    # parent = models.OneToOneField(UserProfile, on_delete=models.CASCADE, default=5)
 
     # Return project name
     def __str__(self):
