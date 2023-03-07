@@ -136,25 +136,28 @@ class OnePost_ViewSet(APIView):
     def put(self, request, id):
         try:
             user = self.request.user
+            # postId = self.request.id
             isAuthenticated = user.is_authenticated
             if isAuthenticated:
                 image = request.data['image']
                 github_link = request.data['github_link']
                 project_name = request.data['project_name']
-                # heartQty = request.data['heartQty']
                 userProfile = UserProfile.objects.get(user=user)
                 Posts = Post.objects.get(id=id)
                 userId = userProfile.id
                 userPost = Posts.username
-                if str(userPost) == str(userId):
+                if str(userId) == str(userPost):
                     Post.objects.update(image=image, github_link=github_link, project_name=project_name)
-                    return Response({'message': 'Post successfully updated'})
+                    res = f'Posts: {Post.objects}, Post successfully updated'
+                    return Response({'message': res})
                 else:
-                    return Response({'message': "You are not authorized to update this post"})
+                    res2 = f'userId: {userId}, userPost: {userPost}, You are not authorized to update this post'
+                    return Response({'message': res2})
             else:
                 return Response({'error': "Not Authenticated make sure you include a token"})
-        except:
-            return Response({'error': "Error: Invalid Body"})
+        except Exception as e:
+            print(e)
+            return Response({'error': {e}})
     def delete(self, request, id):
         try:
             user = self.request.user
