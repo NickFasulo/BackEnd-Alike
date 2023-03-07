@@ -136,12 +136,12 @@ class OnePost_ViewSet(APIView):
     def put(self, request, id):
         try:
             user = self.request.user
+            # postId = self.request.id
             isAuthenticated = user.is_authenticated
             if isAuthenticated:
                 image = request.data['image']
                 github_link = request.data['github_link']
                 project_name = request.data['project_name']
-                # heartQty = request.data['heartQty']
                 userProfile = UserProfile.objects.get(user=user)
                 post = Post.objects.get(id=id)
                 userId = userProfile.id
@@ -153,8 +153,10 @@ class OnePost_ViewSet(APIView):
                     post.save()
                     res = f'Post {id} successfully updated'
                     return Response({'message': res})
+                
                 else:
-                    return Response({'message': "You are not authorized to update this post"})
+                    res2 = f'userId: {userId}, userPost: {userPost}, You are not authorized to update this post'
+                    return Response({'message': res2})
             else:
                 return Response({'error': "Not Authenticated make sure you include a token"})
         except:
