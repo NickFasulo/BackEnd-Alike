@@ -3,11 +3,9 @@ from django.contrib import admin
 from django.urls import path, include
 # Import rest_framework routers
 from rest_framework import routers
-# Import from Simple JSON Web Token the functions to obtain tokens
-from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
 
 # Import ViewSets
-from backend_alike_app.views import UserProfileViewSet, PostViewSet, CommentViewSet
+from backend_alike_app.views import UserProfileViewSet, PostViewSet, CommentViewSet, SignupView, LoginView, GrabProfile, AllPost_ViewSet, OnePost_ViewSet
 
 # Register Routers
 router = routers.DefaultRouter()
@@ -21,8 +19,14 @@ urlpatterns = [
     path('', include(router.urls)),
     # admin panel
     path('admin/', admin.site.urls),
-    # obtain pair view token path
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    # obtain refresh token path
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh')
-]
+    # signup
+    path('signup', SignupView.as_view()),
+    # login
+    path('login', LoginView.as_view()),
+    # grab profile
+    path('profile', GrabProfile.as_view()),
+    # get all posts
+    path('posts', AllPost_ViewSet.as_view()),
+    # edit / delete one post
+    path('post/<int:id>', OnePost_ViewSet.as_view())
+    ]

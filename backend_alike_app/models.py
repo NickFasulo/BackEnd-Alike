@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 # User model
 class UserProfile(models.Model):
     # Datafields
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=4)
 
     username = models.CharField(
       max_length = 30,
@@ -19,7 +19,7 @@ class UserProfile(models.Model):
 
     # Return username
     def __str__(self):
-        return f'{self.username}'
+        return f'{self.id}'
 
 # Post model
 class Post(models.Model):
@@ -27,7 +27,7 @@ class Post(models.Model):
     image = models.URLField(max_length = 500)
     github_link = models.URLField(max_length = 500)
     project_name = models.CharField(max_length = 30)
-    # heartQty = models.IntegerField(default = 0)
+    heartQty = models.IntegerField(default = 0)
     # tags = models.CharField(max_length = 255, null = True, default = '', blank = True)
     # Links to User model
     username = models.ForeignKey(UserProfile, on_delete = models.CASCADE, related_name = 'posts')
