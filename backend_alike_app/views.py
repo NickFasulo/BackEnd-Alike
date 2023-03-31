@@ -142,6 +142,7 @@ class OnePost_ViewSet(APIView):
                 image = request.data['image']
                 github_link = request.data['github_link']
                 project_name = request.data['project_name']
+                heartQty = request.data['heartQty']
                 userProfile = UserProfile.objects.get(user=user)
                 post = Post.objects.get(id=id)
                 userId = userProfile.id
@@ -150,6 +151,7 @@ class OnePost_ViewSet(APIView):
                     post.image = image
                     post.github_link = github_link
                     post.project_name = project_name
+                    post.heartQty = heartQty
                     post.save()
                     res = f'Post {id} successfully updated'
                     return Response({'message': res})
