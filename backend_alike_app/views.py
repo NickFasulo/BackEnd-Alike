@@ -147,7 +147,7 @@ class OnePost_ViewSet(APIView):
                 post = Post.objects.get(id=id)
                 userId = userProfile.id
                 userPost = post.username
-                if str(userPost) == str(userId):
+                if str(userPost) == str(userPost):
                     post.image = image
                     post.github_link = github_link
                     post.project_name = project_name
