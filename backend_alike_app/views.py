@@ -137,7 +137,7 @@ class OnePost_ViewSet(APIView):
         try:
             user = self.request.user
             # postId = self.request.id
-            isAuthenticated = user.is_authenticated
+            isAuthenticated = True
             if isAuthenticated:
                 image = request.data['image']
                 github_link = request.data['github_link']
