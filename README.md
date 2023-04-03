@@ -1,15 +1,16 @@
-# Alike Backend
+# Alike-Backend
 
 ## Description
 
-Description TBC
+Alike is a social media platform where innovative minds collaborate and share ideas to create the projects of tomorrow. The platform is deisgned so developers can showcase their projects, share their feedback, and keep up on all the latest technology. 
 
-- GitHub Link: https://github.com/NickFasulo/BackEnd-Alike
+Built by developers - for developers!
+
+- Backend GitHub Link: https://github.com/NickFasulo/BackEnd-Alike
+- Frontend GitHub Link: https://github.com/annadruzhinina/FrontEnd-Alike/
 - Heroku API Root Directory: https://backend-alike.herokuapp.com/
 
-## API Navigation
-
-Screenshots and API endpoints:
+## API Screenshots and Endpoints
 
 ### ***ROOT API***
 
@@ -23,68 +24,85 @@ Screenshots and API endpoints:
 
 ![POSTS](./assets/POSTS.png)
 
+### ***SINGLE POST***
+
+![POST](./assets/POST.png)
+
 ## Endpoints
 
 To get started, navigate to the root path or insert one of the following paths into your browser:
 
 1. Root Path: https://backend-alike.herokuapp.com/
 2. User: https://backend-alike.herokuapp.com/user/
-3. Post: https://backend-alike.herokuapp.com/post/
-4. Comment: https://backend-alike.herokuapp.com/comment/
-5. Admin: https://backend-alike.herokuapp.com/admin/
-6. Token Obtain: https://backend-alike.herokuapp.com/api/token/
-7. Token Refresh: https://backend-alike.herokuapp.com/api/token/refresh/
+3. All Posts: https://backend-alike.herokuapp.com/posts/
+4. Single Post: https://backend-alike.herokuapp.com/post/:id
+5. Comment: https://backend-alike.herokuapp.com/comment/
+6. Admin: https://backend-alike.herokuapp.com/admin/
 
 ## Technical Notes
 
-### Data
+### ***Django Models***
+<br>
 
-We created django models that convert to JSON on the front end. Our models are listed here.
+***Django User:***
 
-User:
+- username
+- password
+
+***User Profile:***
 
 - username
 - email
 - password
+- re_password
 
-Post:
+***Post:***
 
-- image
+- image (cloudinary URL)
 - github_link
 - project_name
-- username(ForeignKey links to user model)
+- heartQty
+- username (ForeignKey links to user model)
 
-Comment:
+***Comment:***
 
 - username
 - comment
-- post(ForeignKey links to post model)
+- post (ForeignKey links to post model)
 
-### Cloudinary
+### ***Cloudinary***
 
-Cloudinary was used to allow users to upload photos of their projects from various sources. Here's an overview of the data flow.
+Cloudinary was used to allow users to upload photos of their projects from multiple sources and apply parameters to those images. Here's an overview of the data flow.
 
 ![DATA FLOW](./assets/DATA_FLOW.jpg)
 
 ### Dependencies
 
-- Cors
-- Dotenv
-- Django
-- Python
 - Cloudinary
+- Cors
+- Django
+- Dotenv
 - Heroku CLI
 - Knox
-- Rest Framework
 - PostgresSQL
+- Psycopg2-binary
+- Python
+- Rest Framework
 
 ## Future Features
 
-- Full User Authorization
-- Comments under Posts
+- Comments section associated with each Post
 - Functional profile pages
-- Likes on Posts
-- Tags for Posts
+- Searchable tags
+- Pagination
+- Direct messaging between users
+- Archiving favorite projects
+- Following user profiles
+- Forums, groups
+- Tracking a user's likes
+- Friends list
+- Superuser for site arbitration
+- Avatars
 
 # Team
 
@@ -129,6 +147,12 @@ GitHub: https://github.com/HowzayCalderon
 LinkedIn: https://www.linkedin.com/in/aolloni/
 
 GitHub: https://github.com/argurjanaolloni
+
+## **Alex Chang**
+
+LinkedIn: https://www.linkedin.com/in/alexlchang/
+
+GitHub: https://github.com/individual-ism
 
 ## ***TEAM***
 
