@@ -74,7 +74,7 @@ To get started, navigate to the root path or insert one of the following paths i
 
 Cloudinary was used to allow users to upload photos of their projects from multiple sources and apply parameters to those images. Here's an overview of the data flow.
 
-![DATA FLOW](./assets/DATA_FLOW.jpg)
+![DATA FLOW](./assets/DATA_FLOW.png)
 
 ### Dependencies
 
